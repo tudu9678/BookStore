@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head th:replace="/common/header :: header" />
+
+<body>
+    <div th:replace="/common/header :: navbar" />
+
+    <!-- Start of container-->
+    <div class="container">
+        <div class="row">
+            <div class="col-8 section-heading">
+                <span th:text="${#strings.toUpperCase{user.username}}"></span>
+				<hr>
+			</div>
+
+			<div class="col-4">
+				<img src="img/logo.jpg" alt="logo" class="img-responsive w-75">
+			</div>
+		</div>
+		<div>
+			<ul class="nav nav-tabs text-dark">
+				<li class="nav-item">
+					<a class="nav-link text-dark " data-toggle="tab" role="tab" href="#tab1" th:classappend="${classActiveEdit}? ' active'">Edit</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-dark " data-toggle="tab" role="tab" href="#tab2" th:classappend="${classActiveOrders}? ' active'">Orders</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-dark" data-toggle="tab" role="tab" href="#tab3" th:classappend="${classActiveBilling}? ' active'">Billing</a>
+                </li>
+                <li class="nav-item">
+					<a class="nav-link text-dark" data-toggle="tab" role="tab" href="#tab4" th:classappend="${classActiveShipping}? ' active'">Shipping</a>
+				</li>
+
+			</ul>
+
+			<div class="tab-content m-4">
+                <!--Edit user information-->
+				<div class="tab-pane fade show " id="tab1" role="tab" aria-labelledby="tab1" th:classappend="${classActiveEdit}? 'show active'">
+                    <form th:action="@{/updateUserInfo}" method="post">
+                        <input type="hidden" name ="id" th:value="${user.id}">
+                        <div class="bg-info" th:if="${updateUserInfo}">User information updated.</div>
+						<div class="form-group">
+						  <label for="firstName">First Name</label>
+						  <input type="text" class="form-control" id="firstName" name="firstName" th:value="${user.firstName}" >
+						</div>
+						<div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName" th:value="${user.lastName}" >
+                        </div>
+                        <div class="form-group">
+                            <label for="currentPassword">Last Name</label>
+                            <input type="text" class="form-control" id="currentPassword" name="currentPassword" th:value="${currentPassword}" >
+                        </div>
+                        <p style="color: #828282">Enter your current password to change the email address or password</p>
+                        <div class="form-group">
+                            <label for="email">Last Name</label>
+                            <input type="text" class="form-control" id="email" name="email" th:value="${user.email}" >
+                        </div>
+                        <p style="color: #828282">A valid email address. All email from the system will be sent to this address. 
+                        The email address is not made public and will only be used if you wish to recieve a new password or 
+                        wish to recieve certain notification.</p>
+                        <div class="form-group">
+                            <label for="tbxNewPassword">New Password</label>
+                            <input type="password" class="form-control" id="tbxNewPassword" name="tbxNewPassword"  >
+                        </div>
+                        <div class="form-group">
+                            <label for="txtVeryPassword">Verify New Password</label>
+                            <input type="password" class="form-control" id="currentPassword" name="currentPassword" >
+                        </div>
+                        <p style="color: #828282">To change the current password, enter the password in both fields</p>
+						<button type="submit" class="btn btn-orange  float-right">Create</button>
+					  </form>
+				</div>
+  				<div class="tab-pane fade active" id="tab2" role="tab" aria-labelledby="tab2" th:classappend="${classActiveLogin}? 'show active'">
+					<form>
+						<div class="form-group">
+						  <label for="inputEmail">Email address</label>
+						  <input type="email" class="form-control " id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+						</div>
+						<div class="form-group">
+						  <label for="inputPassword">Password</label>
+						  <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+						</div>
+						<button type="submit" class="btn btn-orange  float-right">Login</button>
+					  </form>
+				  </div>
+  				<div class="tab-pane fade" id="tab3" role="tab" aria-labelledby="tab3" th:classappend="${classActiveForgotPassword}? 'show active'">
+					<form>
+						<div class="form-group">
+						  <label for="inputEmail">Email address</label>
+						  <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+						</div>
+						<button type="submit" class="btn btn-orange   float-right">Send</button>
+					  </form>
+				  </div>
+			</div>
+		</div>
+
+
+	</div>
+	<!-- end of container -->
+	<div th:replace="/common/header :: bottom-scripts" />
+
+
+</body>
+
+</html>

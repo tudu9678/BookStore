@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head th:replace="/common/header :: header" />
+
+<body>
+	<div th:replace="/common/header :: navbar" />
+
+	<!-- Start of container-->
+	<div class="container">
+		<div class="row">
+			<div class="col-8 section-heading">
+				<span>My Account</span>
+				<hr>
+			</div>
+
+			<div class="col-4">
+				<img src="img/logo.jpg" alt="logo" class="img-responsive w-75">
+			</div>
+		</div>
+		<div>
+			<ul class="nav nav-tabs text-dark">
+				<li class="nav-item">
+					<a class="nav-link text-dark " data-toggle="tab" role="tab" href="#tab1" th:classappend="${classActivenewUser}? ' active'">Create new account</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-dark " data-toggle="tab" role="tab" href="#tab2" th:classappend="${classActiveLogin}? ' active'">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-dark" data-toggle="tab" role="tab" href="#tab3" th:classappend="${classActiveForgotPassword}? ' active'">Forget Password</a>
+				</li>
+
+			</ul>
+
+			<div class="tab-content m-4">
+				<div class="tab-pane fade" id="tab1" role="tab" aria-labelledby="tab1" th:classappend="${classActiveNewUser}? 'show active'">
+					<div class="alert alert-info" role="alert" th:if="${emailSent}"> 
+						An email has been sent to email address you just registered . Please validate your email address and update your password and information.
+					</div>
+					<form th:action="@{/newUser}"  method="post">
+						<div  class="form-group">
+							<label for="inputUserName">User name</label>
+							<input type="text" class="form-control" id="inputUserName" name="userName"  placeholder="Enter user name">
+							<small id="userNameHelp" class="form-text text-muted">We'll never share your user name with anyone else.</small>
+						  </div>
+						  <div class="form-group">
+							<label for="inputEmail1">Email address</label>
+							<input type="email" class="form-control" id="inputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+							<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						  </div>
+						<button type="submit" class="btn btn-orange  float-right">Create</button>
+					  </form>
+				</div>
+  				<div class="tab-pane fade" id="tab2" role="tab" aria-labelledby="tab2" th:classappend="${classActiveLogin}? 'show active'">
+					<form>
+						<div class="form-group">
+						  <label for="inputEmail2">Email address</label>
+						  <input type="email" class="form-control " id="inputEmail2" aria-describedby="emailHelp" placeholder="Enter email">
+						</div>
+						<div class="form-group">
+						  <label for="inputPassword">Password</label>
+						  <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+						</div>
+						<button type="submit" class="btn btn-orange  float-right">Login</button>
+					  </form>
+				  </div>
+  				<div class="tab-pane fade" id="tab3" role="tab" aria-labelledby="tab3" th:classappend="${classActiveForgotPassword}? 'show active'">
+					<form>
+						<div class="form-group">
+						  <label for="inputEmail3">Email address</label>
+						  <input type="email" class="form-control" id="inputEmail3" aria-describedby="emailHelp" placeholder="Enter email">
+						</div>
+						<button type="submit" class="btn btn-orange   float-right">Send</button>
+					  </form>
+				  </div>
+			</div>
+		</div>
+
+
+	</div>
+	<!-- end of container -->
+	<div th:replace="/common/header :: bottom-scripts" />
+
+
+</body>
+
+</html>

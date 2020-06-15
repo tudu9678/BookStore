@@ -1,0 +1,79 @@
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.box {
+	border : 1px solid red;
+}
+
+
+.text-orange {
+	color : #ff9f43;
+}
+.btn-orange {
+		color: #333;
+		background-color: #ff9f43;
+		border-color: #ff9f43;
+}
+.home-heading {
+	font-family: 'Noto Sans', sans-serif;
+	font-size : 25px;
+	color : #d35400;
+	margin : auto;
+	text-align : center;
+	padding-top:  20px;
+}
+.home-heading span {
+	background-color : #fff;
+	padding : 10px;
+}
+.home-heading hr {
+	border : 1px solid  #d35400;
+	margin-top : -36px;
+	border-radius: 5px;
+}
+
+.section-heading {
+	font-family: 'Noto Sans', sans-serif;
+	font-size : 25px;
+	color : #d35400;
+	margin : auto;
+	text-align : center;
+	padding-top:  20px;
+}
+.section-heading span {
+	background-color : #fff;
+	padding : 10px;
+}
+.section-heading hr {
+	border : 1px solid  #d35400;
+	margin-top : -18px;
+	border-radius: 5px;
+}
+#carouselBooks img {
+	margin: 5px;
+	border-radius: 0.25rem;
+	height: 270px;
+	width: 170px;
+}
+.navbar-nav .nav-link {
+	color: #fff !important;
+}
+
+.carousel-control-prev-icon {
+	background-image: url("/img/back_50px.png");
+  }
+  
+  .carousel-control-next-icon {
+	background-image: url("/img/forward_50px.png");
+  }
+  .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.nav-tabs > .nav-item > a.active {
+	color: #ff9f43 !important;   
+  }
